@@ -68,7 +68,7 @@ if(${flow_FOUND})
 endif()
 
 
-set(MICO_DEPS "")
+set(MICO_DEPS "core" "")
 foreach(DEP ${MICO_DEPS})
   find_package(mico-${DEP} REQUIRED HINTS "/usr/local/lib/cmake/mico")
   target_link_libraries(${PLUGIN_NAME} LINK_PRIVATE mico::mico-${DEP})
