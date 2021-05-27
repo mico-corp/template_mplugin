@@ -19,13 +19,26 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //---------------------------------------------------------------------------------------------------------------------
 
-#include <mico/xxxxxx/flow/DummyBlock.h>
+#ifndef XXXXXX_DUMMY_BLOCK_MPLUGIN_H_
+#define XXXXXX_DUMMY_BLOCK_MPLUGIN_H_
 
-namespace xxxxxx{
+#include <flow/Policy.h>
+#include <flow/Outpipe.h>
+#include <flow/Block.h>
 
-    DummyBlock::DummyBlock(){
+class DummyBlock : public flow::Block{
+public:
+    DummyBlock();
 
-    }
+    std::string name() const override {return "Dummy block";};
+    std::string description() const override {return "Dummy block to use as template";};
+        
+    virtual bool isConfigurable() {
+        return false;
+    };
+private:
 
+};
+    
 
-}
+#endif

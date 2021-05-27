@@ -19,12 +19,8 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //---------------------------------------------------------------------------------------------------------------------
 
-#include <mico/xxxxxx/xxxxxx.h>
+#include <mico/DummyBlock.h>
 
-namespace xxxxxx{
-
-
-
-
+DummyBlock::DummyBlock(){
 
 }

@@ -19,26 +19,13 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //---------------------------------------------------------------------------------------------------------------------
 
-#ifndef XXXXXX_DUMMY_BLOCK_MPLUGIN_H_
-#define XXXXXX_DUMMY_BLOCK_MPLUGIN_H_
+#include <flow/flow.h>
+#include <mico/DummyBlock.h>
 
-#include <flow/Policy.h>
-#include <flow/Outpipe.h>
-#include <flow/Block.h>
+extern "C" FLOW_FACTORY_EXPORT flow::PluginNodeCreator * factory() {
+    flow::PluginNodeCreator* creator = new flow::PluginNodeCreator;
 
-namespace xxxxxx{
+    creator->registerNodeCreator([]() { return std::make_unique<flow::FlowVisualBlock<DummyBlock>>(); }, "Dummy");
 
-    class DummyBlock : public flow::Block{
-    public:
-        DummyBlock();
-
-        std::string name() const override {return "Dummy block";};
-        std::string description() const override {return "Dummy block to use as template";};
-    
-    private:
-
-    };
-    
+    return creator;
 }
-
-#endif
